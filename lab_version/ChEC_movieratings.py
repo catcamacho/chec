@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy2 Experiment Builder (v1.84.0),
-    on Thu Jan  4 14:50:33 2018
+    on January 04, 2018, at 16:23
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -11,7 +11,7 @@ If you publish work using this script please cite the PsychoPy publications:
 """
 
 from __future__ import absolute_import, division
-from psychopy import locale_setup, visual, core, data, event, logging, sound, gui
+from psychopy import locale_setup, gui, visual, core, data, event, logging, sound
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 import numpy as np  # whole numpy lib is available, prepend 'np.'
@@ -40,7 +40,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath=u'/Users/catcamacho/Box/LCBD/ChEC/chec/ChEC_movieratings.psyexp',
+    originPath=None,
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -53,7 +53,7 @@ endExpNow = False  # flag for 'escape' or other condition => quit the exp
 
 # Setup the Window
 win = visual.Window(
-    size=(1440, 900), fullscr=True, screen=0,
+    size=(1920, 1080), fullscr=True, screen=0,
     allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True)
@@ -73,17 +73,17 @@ welcome = visual.TextStim(win=win, name='welcome',
     color='white', colorSpace='rgb', opacity=1,
     depth=0.0);
 
+
 # Initialize components for Routine "playmovie"
 playmovieClock = core.Clock()
 kingjulian = visual.MovieStim3(
     win=win, name='kingjulian',
     noAudio = False,
-    filename='/Users/catcamacho/Box/LCBD/ChEC/AHKJ_S01E02.mp4',
+    filename=u'C:\\Users\\iView X\\Desktop\\ChEC\\AHKJ_S01E02.mp4',
     ori=0, pos=(0, 0), opacity=1,
     depth=0.0,
     )
-joystick = event.Mouse(win=win)
-x, y = [None, None]
+
 
 # Initialize components for Routine "thankyou"
 thankyouClock = core.Clock()
@@ -105,6 +105,7 @@ frameN = -1
 continueRoutine = True
 # update component parameters for each repeat
 start_movie = event.BuilderKeyResponse()
+
 # keep track of which components have finished
 instructionsComponents = [welcome, start_movie]
 for thisComponent in instructionsComponents:
@@ -145,6 +146,7 @@ while continueRoutine:
             # a response ends the routine
             continueRoutine = False
     
+    
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
@@ -173,6 +175,7 @@ thisExp.addData('start_movie.keys',start_movie.keys)
 if start_movie.keys != None:  # we had a response
     thisExp.addData('start_movie.rt', start_movie.rt)
 thisExp.nextEntry()
+
 # the Routine "instructions" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -184,15 +187,9 @@ continueRoutine = True
 routineTimer.add(1284.000000)
 # update component parameters for each repeat
 premature_quit = event.BuilderKeyResponse()
-# setup some python lists for storing info about the joystick
-joystick.x = []
-joystick.y = []
-joystick.leftButton = []
-joystick.midButton = []
-joystick.rightButton = []
-joystick.time = []
+
 # keep track of which components have finished
-playmovieComponents = [kingjulian, premature_quit, joystick]
+playmovieComponents = [kingjulian, premature_quit]
 for thisComponent in playmovieComponents:
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
@@ -239,25 +236,7 @@ while continueRoutine and routineTimer.getTime() > 0:
             premature_quit.rt = premature_quit.clock.getTime()
             # a response ends the routine
             continueRoutine = False
-    # *joystick* updates
-    if t >= 0.0 and joystick.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        joystick.tStart = t
-        joystick.frameNStart = frameN  # exact frame index
-        joystick.status = STARTED
-        event.mouseButtons = [0, 0, 0]  # reset mouse buttons to be 'up'
-    frameRemains = 0.0 + 1284- win.monitorFramePeriod * 0.75  # most of one frame period left
-    if joystick.status == STARTED and t >= frameRemains:
-        joystick.status = STOPPED
-    if joystick.status == STARTED:  # only update if started and not stopped!
-        buttons = joystick.getPressed()
-        x, y = joystick.getPos()
-        joystick.x.append(x)
-        joystick.y.append(y)
-        joystick.leftButton.append(buttons[0])
-        joystick.midButton.append(buttons[1])
-        joystick.rightButton.append(buttons[2])
-        joystick.time.append(playmovieClock.getTime())
+    
     
     # check if all components have finished
     if not continueRoutine:  # a component has requested a forced-end of Routine
@@ -287,14 +266,7 @@ thisExp.addData('premature_quit.keys',premature_quit.keys)
 if premature_quit.keys != None:  # we had a response
     thisExp.addData('premature_quit.rt', premature_quit.rt)
 thisExp.nextEntry()
-# store data for thisExp (ExperimentHandler)
-thisExp.addData('joystick.x', joystick.x)
-thisExp.addData('joystick.y', joystick.y)
-thisExp.addData('joystick.leftButton', joystick.leftButton)
-thisExp.addData('joystick.midButton', joystick.midButton)
-thisExp.addData('joystick.rightButton', joystick.rightButton)
-thisExp.addData('joystick.time', joystick.time)
-thisExp.nextEntry()
+
 
 # ------Prepare to start Routine "thankyou"-------
 t = 0
@@ -347,6 +319,8 @@ while continueRoutine and routineTimer.getTime() > 0:
 for thisComponent in thankyouComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+
+
 # these shouldn't be strictly necessary (should auto-save)
 thisExp.saveAsWideText(filename+'.csv')
 thisExp.saveAsPickle(filename)
