@@ -54,6 +54,7 @@
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="flipVert" updates="constant" val="False" valType="bool"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="name" updates="None" val="waitimage" valType="code"/>
         <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
@@ -68,7 +69,6 @@
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="stopType" updates="None" val="condition" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
         <Param name="image" updates="constant" val="/Users/catcamacho/Box/LCBD/ChEC/stimuli/waitslide.png" valType="str"/>
         <Param name="size" updates="constant" val="" valType="code"/>
       </ImageComponent>
@@ -93,7 +93,7 @@
       <MovieComponent name="kingjulian">
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="name" updates="None" val="kingjulian" valType="code"/>
-        <Param name="movie" updates="constant" val="/Users/catcamacho/Box/LCBD/ChEC/stimuli/AHKJ_S01E02.mp4" valType="str"/>
+        <Param name="movie" updates="constant" val="/Users/catcamacho/Box/LCBD/ChEC/stimuli/AHKJ_S01E02_orig.mp4" valType="str"/>
         <Param name="stopVal" updates="constant" val="1284" valType="code"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
